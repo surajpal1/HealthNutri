@@ -1,0 +1,598 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HealthNutri - Health & Nutrition</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION BAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            HealthNutri 🥗
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">Home</a>
+
+            <a href="/bmi">
+                BMI Calculator
+            </a>
+
+            <a href="/calories">
+                Calories
+            </a>
+
+            <a href="/diet">
+                Diet Plan
+            </a>
+
+            <a href="/recipes">
+                Recipes
+            </a>
+            <a href="/login">login
+            </a>
+
+            <a href="/signup">Sign Up
+                
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO SECTION
+    ========================== -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                🌱 Your Personal Health Assistant
+            </div>
+
+            <h1>
+                Build a
+                <span>Healthier You</span>
+            </h1>
+
+            <p>
+                HealthNutri helps you understand your body,
+                calculate your nutrition needs, choose the
+                right diet and discover healthy recipes.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="/bmi"
+                   class="primary-button">
+                    Calculate Your BMI
+                </a>
+
+                <a href="/diet"
+                   class="secondary-button">
+                    Explore Diet Plans
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-icon">
+            🥗
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         QUICK STATS
+    ========================== -->
+
+    <section class="quick-stats">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🧮
+            </div>
+
+            <h3>
+                BMI
+            </h3>
+
+            <p>
+                Understand your body weight category
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🔥
+            </div>
+
+            <h3>
+                Calories
+            </h3>
+
+            <p>
+                Know your daily calorie needs
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                💪
+            </div>
+
+            <h3>
+                Protein
+            </h3>
+
+            <p>
+                Make smarter nutrition choices
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🥗
+            </div>
+
+            <h3>
+                Healthy Food
+            </h3>
+
+            <p>
+                Discover nutritious meal ideas
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FEATURES SECTION
+    ========================== -->
+
+    <section class="features">
+
+        <h2>
+            Everything You Need for a Healthier You
+        </h2>
+
+        <p class="section-subtitle">
+            Simple tools designed to help you understand
+            your health and improve your daily nutrition.
+        </p>
+
+
+        <div class="feature-grid">
+
+
+            <!-- BMI -->
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🧮
+                </div>
+
+                <h3>
+                    BMI Calculator
+                </h3>
+
+                <p>
+                    Calculate your Body Mass Index and
+                    understand whether your weight falls
+                    within a healthy range.
+                </p>
+
+                <a href="/bmi">
+                    Calculate BMI →
+                </a>
+
+            </div>
+
+
+            <!-- Calories -->
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🔥
+                </div>
+
+                <h3>
+                    Calories Calculator
+                </h3>
+
+                <p>
+                    Estimate your daily calorie requirement
+                    based on age, body measurements and
+                    activity level.
+                </p>
+
+                <a href="/calories">
+                    Calculate Calories →
+                </a>
+
+            </div>
+
+
+            <!-- Diet -->
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🍱
+                </div>
+
+                <h3>
+                    Diet Plans
+                </h3>
+
+                <p>
+                    Choose your goal and explore simple
+                    plans for weight loss, maintenance
+                    and healthy weight gain.
+                </p>
+
+                <a href="/diet">
+                    View Diet Plans →
+                </a>
+
+            </div>
+
+
+            <div class="feature-card"><div class="feature-icon">💧</div><h3>Water Intake Tracker</h3><p>Track your glasses and daily hydration progress.</p><a href="/water">Track Water →</a></div>
+            <!-- Recipes -->
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🍳
+                </div>
+
+                <h3>
+                    Healthy Recipes
+                </h3>
+
+                <p>
+                    Explore nutritious recipes with
+                    ingredients, calories, protein and
+                    simple preparation instructions.
+                </p>
+
+                <a href="/recipes">
+                    Explore Recipes →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         GOALS SECTION
+    ========================== -->
+
+    <section class="goals-section">
+
+        <h2>
+            Choose Your Health Goal
+        </h2>
+
+        <p class="section-subtitle">
+            Start with a goal that matches what you want
+            to achieve.
+        </p>
+
+
+        <div class="goal-grid">
+
+
+            <div class="goal-card">
+
+                <div class="goal-icon">
+                    📉
+                </div>
+
+                <h3>
+                    Weight Loss
+                </h3>
+
+                <p>
+                    Follow balanced meals and
+                    calorie-controlled nutrition.
+                </p>
+
+                <a href="/diet">
+                    View Plan →
+                </a>
+
+            </div>
+
+
+            <div class="goal-card">
+
+                <div class="goal-icon">
+                    ⚖️
+                </div>
+
+                <h3>
+                    Maintenance
+                </h3>
+
+                <p>
+                    Maintain your current weight with
+                    balanced nutrition.
+                </p>
+
+                <a href="/diet">
+                    View Plan →
+                </a>
+
+            </div>
+
+
+            <div class="goal-card">
+
+                <div class="goal-icon">
+                    📈
+                </div>
+
+                <h3>
+                    Weight Gain
+                </h3>
+
+                <p>
+                    Build a calorie surplus with
+                    nutritious protein-rich foods.
+                </p>
+
+                <a href="/diet">
+                    View Plan →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         HOW IT WORKS
+    ========================== -->
+
+    <section class="how-it-works">
+
+        <h2>
+            How HealthNutri Works
+        </h2>
+
+        <p class="section-subtitle">
+            Start your health journey in three simple steps.
+        </p>
+
+
+        <div class="steps">
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    1
+                </div>
+
+                <h3>
+                    Know Your Body
+                </h3>
+
+                <p>
+                    Use our BMI and calorie calculators
+                    to understand your basic requirements.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    2
+                </div>
+
+                <h3>
+                    Choose Your Goal
+                </h3>
+
+                <p>
+                    Select weight loss, maintenance
+                    or weight gain according to your goal.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    3
+                </div>
+
+                <h3>
+                    Eat Better
+                </h3>
+
+                <p>
+                    Follow simple diet plans and explore
+                    healthy recipes for your daily meals.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         WHY HEALTHNUTRI
+    ========================== -->
+
+    <section class="why-section">
+
+        <div class="why-content">
+
+            <div>
+
+                <h2>
+                    Why Choose HealthNutri?
+                </h2>
+
+                <p>
+                    HealthNutri brings important health and
+                    nutrition tools together in one simple
+                    website.
+                </p>
+
+            </div>
+
+
+            <div class="why-list">
+
+                <div class="why-item">
+                    ✅ Simple and easy to use
+                </div>
+
+                <div class="why-item">
+                    ✅ BMI and calorie calculations
+                </div>
+
+                <div class="why-item">
+                    ✅ Goal-based diet plans
+                </div>
+
+                <div class="why-item">
+                    ✅ Healthy recipes and nutrition information
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CALL TO ACTION
+    ========================== -->
+
+    <section class="cta">
+
+        <h2>
+            Ready to Start Your Health Journey?
+        </h2>
+
+        <p>
+            Understand your body, discover your calorie
+            needs and choose a healthier lifestyle.
+        </p>
+
+        <a href="/bmi"
+           class="cta-button">
+            Get Started 🚀
+        </a>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        <div class="footer-logo">
+            HealthNutri 🥗
+        </div>
+
+        <p>
+            Your simple health, nutrition and
+            fitness assistant.
+        </p>
+
+
+        <div class="footer-links">
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/bmi">
+                BMI
+            </a>
+
+            <a href="/calories">
+                Calories
+            </a>
+
+            <a href="/diet">
+                Diet
+            </a>
+
+            <a href="/recipes">
+                Recipes
+            </a>
+
+        </div>
+
+
+        <p class="copyright">
+            © 2026 HealthNutri. All rights reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
+

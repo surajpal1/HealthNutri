@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Up - HealthNutri</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+        .auth-container {
+            min-height: 75vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .auth-card {
+            width: 400px;
+            padding: 35px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.10);
+        }
+
+        .auth-card h1 {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .auth-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        .signup-button {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: #16a34a;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .signup-button:hover {
+            background: #12813b;
+        }
+
+        .login-text {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+
+        .login-text a {
+            color: #16a34a;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .error-message {
+            background: #ffe5e5;
+            color: #c62828;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            HealthNutri 🥗
+        </div>
+
+        <div class="nav-links">
+
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('bmi') }}">BMI Calculator</a>
+            <a href="{{ url_for('calories') }}">Calories</a>
+            <a href="{{ url_for('diet') }}">Diet Plan</a>
+            <a href="{{ url_for('recipes') }}">Recipes</a>
+            <a href="{{ url_for('water') }}">Water Intake</a>
+
+        </div>
+
+    </nav>
+
+    <div class="auth-container">
+
+        <div class="auth-card">
+
+            <h1>Create Account 🌱</h1>
+
+            <p class="auth-subtitle">
+                Join HealthNutri and start your health journey
+            </p>
+
+            {% if error %}
+                <div class="error-message">
+                    {{ error }}
+                </div>
+            {% endif %}
+
+            <form action="{{ url_for('signup') }}" method="POST">
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Create a password"
+                        required
+                        minlength="6"
+                    >
+
+                </div>
+
+                <button type="submit" class="signup-button">
+                    Create Account
+                </button>
+
+            </form>
+
+            <p class="login-text">
+                Already have an account?
+                <a href="{{ url_for('login') }}">Login</a>
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

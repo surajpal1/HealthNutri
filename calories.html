@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Calories Calculator - HealthNutri</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION BAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            HealthNutri 🥗
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/bmi">
+                BMI Calculator
+            </a>
+
+            <a href="/calories">
+                Calories
+            </a>
+
+            <a href="/diet">
+                Diet Plan
+            </a>
+
+            <a href="/recipes">
+                Recipes
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         CALORIES CALCULATOR
+    ========================== -->
+
+    <div class="calorie-container">
+
+        <h1>
+            Calories Calculator
+        </h1>
+
+        <p>
+            Calculate your daily calorie requirement
+        </p>
+
+
+        <div class="calorie-card">
+
+
+            <!-- AGE -->
+
+            <label for="age">
+                Age
+            </label>
+
+            <input
+                type="number"
+                id="age"
+                placeholder="Enter your age"
+                min="1"
+                max="120"
+            >
+
+
+            <!-- GENDER -->
+
+            <label for="gender">
+                Gender
+            </label>
+
+            <select id="gender">
+
+                <option value="">
+                    Select Gender
+                </option>
+
+                <option value="male">
+                    Male
+                </option>
+
+                <option value="female">
+                    Female
+                </option>
+
+            </select>
+
+
+            <!-- WEIGHT -->
+
+            <label for="weight">
+                Weight (kg)
+            </label>
+
+            <input
+                type="number"
+                id="weight"
+                placeholder="Enter your weight"
+                min="1"
+                step="0.1"
+            >
+
+
+            <!-- HEIGHT -->
+
+            <label for="height">
+                Height (cm)
+            </label>
+
+            <input
+                type="number"
+                id="height"
+                placeholder="Enter your height"
+                min="1"
+                step="0.1"
+            >
+
+
+            <!-- ACTIVITY -->
+
+            <label for="activity">
+                Activity Level
+            </label>
+
+            <select id="activity">
+
+                <option value="">
+                    Select Activity Level
+                </option>
+
+                <option value="1.2">
+                    Sedentary - Little or no exercise
+                </option>
+
+                <option value="1.375">
+                    Lightly Active - Exercise 1-3 days/week
+                </option>
+
+                <option value="1.55">
+                    Moderately Active - Exercise 3-5 days/week
+                </option>
+
+                <option value="1.725">
+                    Very Active - Exercise 6-7 days/week
+                </option>
+
+                <option value="1.9">
+                    Extra Active - Hard physical work
+                </option>
+
+            </select>
+
+
+            <!-- BUTTONS -->
+
+            <button onclick="calculateCalories()">
+                Calculate Calories
+            </button>
+
+            <button
+                onclick="resetCalories()"
+                class="reset-button"
+            >
+                Reset
+            </button>
+
+
+            <!-- RESULT -->
+
+            <div id="calorie-result"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        function calculateCalories() {
+
+
+            // Get values
+
+            let age =
+                parseFloat(
+                    document.getElementById("age").value
+                );
+
+            let gender =
+                document.getElementById("gender").value;
+
+            let weight =
+                parseFloat(
+                    document.getElementById("weight").value
+                );
+
+            let height =
+                parseFloat(
+                    document.getElementById("height").value
+                );
+
+            let activity =
+                parseFloat(
+                    document.getElementById("activity").value
+                );
+
+
+            let result =
+                document.getElementById("calorie-result");
+
+
+            // =========================
+            // VALIDATION
+            // =========================
+
+            if (
+                isNaN(age) ||
+                !gender ||
+                isNaN(weight) ||
+                isNaN(height) ||
+                isNaN(activity)
+            ) {
+
+                result.innerHTML =
+                    "<p class='error-message'>" +
+                    "Please fill all the details." +
+                    "</p>";
+
+                return;
+            }
+
+
+            if (
+                age <= 0 ||
+                age > 120 ||
+                weight <= 0 ||
+                height <= 0
+            ) {
+
+                result.innerHTML =
+                    "<p class='error-message'>" +
+                    "Please enter valid values." +
+                    "</p>";
+
+                return;
+            }
+
+
+            // =========================
+            // BMR CALCULATION
+            // Mifflin-St Jeor Equation
+            // =========================
+
+            let bmr;
+
+
+            if (gender === "male") {
+
+                bmr =
+                    (10 * weight) +
+                    (6.25 * height) -
+                    (5 * age) +
+                    5;
+
+            }
+
+            else {
+
+                bmr =
+                    (10 * weight) +
+                    (6.25 * height) -
+                    (5 * age) -
+                    161;
+
+            }
+
+
+            // =========================
+            // CALORIE CALCULATIONS
+            // =========================
+
+            let maintenanceCalories =
+                bmr * activity;
+
+
+            let weightLoss =
+                maintenanceCalories - 500;
+
+
+            let weightGain =
+                maintenanceCalories + 300;
+
+
+            // Prevent very low displayed
+            // weight-loss target
+
+            if (weightLoss < 1200) {
+
+                weightLoss = 1200;
+
+            }
+
+
+            // =========================
+            // DISPLAY RESULT
+            // =========================
+
+            result.innerHTML = `
+
+                <div class="calorie-result-card">
+
+                    <h2>
+                        🔥 Your Daily Calories
+                    </h2>
+
+
+                    <div class="calorie-box">
+
+                        <h3>
+                            ⚖️ Maintenance
+                        </h3>
+
+                        <p>
+                            ${Math.round(maintenanceCalories)}
+                            kcal/day
+                        </p>
+
+                        <span>
+                            Calories to maintain your current weight
+                        </span>
+
+                    </div>
+
+
+                    <div class="calorie-box">
+
+                        <h3>
+                            📉 Weight Loss
+                        </h3>
+
+                        <p>
+                            ${Math.round(weightLoss)}
+                            kcal/day
+                        </p>
+
+                        <span>
+                            Approx. 500 kcal deficit
+                        </span>
+
+                    </div>
+
+
+                    <div class="calorie-box">
+
+                        <h3>
+                            📈 Weight Gain
+                        </h3>
+
+                        <p>
+                            ${Math.round(weightGain)}
+                            kcal/day
+                        </p>
+
+                        <span>
+                            Approx. 300 kcal surplus
+                        </span>
+
+                    </div>
+
+
+                    <p>
+                        <strong>
+                            These are estimates.
+                        </strong>
+                    </p>
+
+                </div>
+
+            `;
+
+        }
+
+
+        // =========================
+        // RESET
+        // =========================
+
+        function resetCalories() {
+
+            document.getElementById("age").value = "";
+
+            document.getElementById("gender").value = "";
+
+            document.getElementById("weight").value = "";
+
+            document.getElementById("height").value = "";
+
+            document.getElementById("activity").value = "";
+
+            document.getElementById("calorie-result").innerHTML = "";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

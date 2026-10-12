@@ -1,0 +1,1466 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7f6;
+    margin: 0;
+    padding: 0;
+    color: #222;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    background: #16a34a;
+    padding: 16px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.logo {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    opacity: 0.8;
+    transform: translateY(-1px);
+}
+
+/* ================= HOME PAGE ================= */
+
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    font-size: 44px;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 45px;
+}
+
+.home-buttons {
+    max-width: 700px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.home-buttons a {
+    text-decoration: none;
+}
+
+.home-buttons button {
+    width: 100%;
+    padding: 18px;
+    border: none;
+    border-radius: 12px;
+    background: #16a34a;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 5px 12px rgba(22, 163, 74, 0.2);
+}
+
+.home-buttons button:hover {
+    background: #15803d;
+    transform: translateY(-3px);
+}
+
+/* ================= CALCULATOR BOX ================= */
+
+.bmi-box {
+    max-width: 650px;
+    margin: 55px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.bmi-box h1 {
+    text-align: center;
+    color: #222;
+    margin-bottom: 30px;
+}
+
+/* ================= INPUTS ================= */
+
+.bmi-box input,
+.bmi-box select {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.bmi-box input:focus,
+.bmi-box select:focus {
+    border-color: #16a34a;
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
+}
+
+/* ================= BUTTON ================= */
+
+.bmi-box button {
+    width: 100%;
+    padding: 16px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #16a34a;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.bmi-box button:hover {
+    background: #15803d;
+    transform: translateY(-2px);
+}
+
+/* ================= RESULTS ================= */
+
+#result,
+#caloriesResult,
+#dietResult {
+    margin-top: 25px;
+    line-height: 1.6;
+}
+
+#result {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#dietResult h2 {
+    text-align: center;
+    color: #16883a;
+    margin-bottom: 15px;
+}
+
+#dietResult h3 {
+    background: #f0f8f2;
+    padding: 12px;
+    border-radius: 10px;
+    color: #16883a;
+    margin-top: 20px;
+}
+
+#dietResult ul {
+    padding-left: 25px;
+}
+
+#dietResult li {
+    margin: 7px 0;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        padding: 50px 15px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .bmi-box {
+        margin: 30px 15px;
+        padding: 25px;
+    }
+}
+
+/* BMI Result Card */
+
+#result {
+    margin-top: 25px;
+    padding: 20px;
+    text-align: center;
+    background: #f0f8f2;
+    border-radius: 15px;
+    color: #16883a;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 1.7;
+}
+
+/* Calories Result Card */
+
+#caloriesResult {
+    margin-top: 25px;
+    padding: 20px;
+    text-align: center;
+    background: #f0f8f2;
+    border-radius: 15px;
+    color: #16883a;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.7;
+}
+
+/* Diet Plan Result */
+
+#dietResult {
+    margin-top: 30px;
+}
+
+#dietResult h2 {
+    background: #16a34a;
+    color: white;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+#dietResult h3 {
+    background: #f0f8f2;
+    border-left: 5px solid #16a34a;
+    padding: 15px;
+    border-radius: 10px;
+    color: #16883a;
+}
+
+#dietResult ul {
+    background: white;
+    padding: 15px 35px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+#dietResult li {
+    margin: 8px 0;
+}
+
+/* ================= RECIPES PAGE ================= */
+
+.recipes-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.recipes-container h1 {
+    text-align: center;
+    font-size: 40px;
+    color: #222;
+}
+
+.recipes-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 17px;
+    margin-bottom: 40px;
+}
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.recipe-card {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+}
+
+.recipe-card h2 {
+    color: #16883a;
+    margin-top: 0;
+}
+
+.recipe-card p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.recipe-card strong {
+    color: #222;
+}
+
+@media (max-width: 700px) {
+
+    .recipe-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .recipes-container h1 {
+        font-size: 32px;
+    }
+}
+
+.bmi-container {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.bmi-container h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.bmi-container p {
+    color: #666;
+}
+
+.bmi-card {
+    width: 400px;
+    max-width: 90%;
+    margin: 30px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+.bmi-card label {
+    display: block;
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+.bmi-card input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.bmi-card button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: #20c463;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.bmi-card button:hover {
+    background: #18a951;
+}
+
+#result {
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 10px;
+    background: #f1fff5;
+}
+
+.calorie-container {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.calorie-container h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.calorie-container p {
+    color: #666;
+}
+
+.calorie-card {
+    width: 450px;
+    max-width: 90%;
+    margin: 30px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+.calorie-card label {
+    display: block;
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+.calorie-card input,
+.calorie-card select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.calorie-card button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: #20c463;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.calorie-card button:hover {
+    background: #18a951;
+}
+
+#calorie-result {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 10px;
+    background: #f1fff5;
+}
+
+#calorie-result h2 {
+    color: #20a957;
+}
+
+.calorie-result-card {
+    margin-top: 30px;
+    padding: 25px;
+    border-radius: 15px;
+    background: #f5fff8;
+    text-align: center;
+}
+
+.calorie-result-card h2 {
+    margin-bottom: 20px;
+    color: #1b8f4d;
+}
+
+.calorie-box {
+    background: white;
+    margin: 15px 0;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.calorie-box h3 {
+    margin: 0 0 8px;
+}
+
+.calorie-box p {
+    font-size: 25px;
+    font-weight: bold;
+    color: #20b65a;
+    margin: 8px 0;
+}
+
+.calorie-box span {
+    color: #777;
+    font-size: 14px;
+}
+
+.error-message {
+    color: #d63031;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.diet-container {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.diet-container h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.diet-container > p {
+    color: #666;
+}
+
+.diet-card {
+    width: 500px;
+    max-width: 90%;
+    margin: 30px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+.diet-card label {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.diet-card select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.diet-card button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: #20c463;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.diet-card button:hover {
+    background: #18a951;
+}
+
+.diet-result-card {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.diet-result-card h2 {
+    text-align: center;
+    color: #1b8f4d;
+    margin-bottom: 20px;
+}
+
+.meal-box {
+    background: #f5fff8;
+    margin: 15px 0;
+    padding: 18px;
+    border-radius: 12px;
+    border-left: 5px solid #20c463;
+}
+
+.meal-box h3 {
+    margin: 0 0 8px;
+}
+
+.meal-box p {
+    margin: 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+.reset-button {
+    margin-top: 10px !important;
+    background: #777 !important;
+}
+
+.reset-button:hover {
+    background: #555 !important;
+}
+
+/* =========================
+   RECIPES PAGE
+========================= */
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.recipe-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.10);
+    text-align: left;
+}
+
+.recipe-icon {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.recipe-card h2 {
+    margin-bottom: 10px;
+}
+
+.recipe-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.nutrition-info {
+    display: flex;
+    gap: 15px;
+    margin: 18px 0;
+    flex-wrap: wrap;
+}
+
+.nutrition-info span {
+    background: #f1fff5;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: #168c45;
+    font-weight: bold;
+}
+
+.recipe-card button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #20c463;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.recipe-card button:hover {
+    background: #18a951;
+}
+
+.recipe-details {
+    display: none;
+    margin-top: 20px;
+    padding: 18px;
+    background: #f7fff9;
+    border-radius: 10px;
+}
+
+.recipe-details h3 {
+    margin-top: 10px;
+}
+
+.recipe-details ul {
+    padding-left: 20px;
+}
+
+.recipe-details li {
+    margin: 8px 0;
+}
+
+
+/* Mobile Responsive */
+
+@media (max-width: 768px) {
+
+    .recipe-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+.recipe-search {
+    width: 100%;
+    max-width: 600px;
+    margin: 25px auto 35px;
+}
+
+.recipe-search input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.recipe-search input:focus {
+    border-color: #20c463;
+    box-shadow: 0 0 5px rgba(32, 196, 99, 0.2);
+}
+
+.recipe-details {
+    display: none;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.recipe-details h3 {
+    margin-top: 18px;
+    color: #222;
+}
+
+.recipe-details ul {
+    padding-left: 20px;
+}
+
+.recipe-details li {
+    margin: 8px 0;
+    color: #555;
+}
+
+.recipe-details p {
+    line-height: 1.6;
+    color: #555;
+}
+
+/* =================================
+   HOME PAGE - PROFESSIONAL DESIGN
+================================= */
+
+.hero {
+    min-height: 520px;
+    padding: 70px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    box-sizing: border-box;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 30px;
+    background: #eafff1;
+    color: #159447;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 52px;
+    margin: 10px 0 20px;
+    line-height: 1.15;
+}
+
+.hero h1 span {
+    color: #20c463;
+}
+
+.hero p {
+    font-size: 19px;
+    line-height: 1.7;
+    color: #666;
+    max-width: 650px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.primary-button,
+.secondary-button,
+.cta-button {
+    display: inline-block;
+    padding: 14px 25px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.primary-button {
+    background: #20c463;
+    color: white;
+}
+
+.primary-button:hover {
+    background: #159447;
+    transform: translateY(-2px);
+}
+
+.secondary-button {
+    border: 2px solid #20c463;
+    color: #159447;
+    background: white;
+}
+
+.secondary-button:hover {
+    background: #20c463;
+    color: white;
+}
+
+.hero-icon {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: #eafff1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    flex-shrink: 0;
+}
+
+
+/* FEATURES */
+
+.features {
+    padding: 70px 8%;
+    text-align: center;
+    background: #f8fffa;
+}
+
+.features h2,
+.how-it-works h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    color: #777;
+    margin-bottom: 40px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.feature-card {
+    background: white;
+    padding: 30px 22px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.feature-icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    color: #666;
+    line-height: 1.6;
+    min-height: 80px;
+}
+
+.feature-card a {
+    color: #159447;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+/* HOW IT WORKS */
+
+.how-it-works {
+    padding: 70px 8%;
+    text-align: center;
+}
+
+.steps {
+    max-width: 1000px;
+    margin: 40px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+}
+
+.step {
+    padding: 20px;
+}
+
+.step-number {
+    width: 55px;
+    height: 55px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #20c463;
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step p {
+    color: #666;
+    line-height: 1.6;
+}
+
+
+/* CTA */
+
+.cta {
+    margin: 30px 8% 70px;
+    padding: 60px 25px;
+    text-align: center;
+    border-radius: 20px;
+    background: #eafff1;
+}
+
+.cta h2 {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.cta p {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.cta-button {
+    background: #20c463;
+    color: white;
+}
+
+.cta-button:hover {
+    background: #159447;
+    transform: translateY(-2px);
+}
+
+
+/* FOOTER */
+
+.footer {
+    padding: 45px 20px 25px;
+    background: #123b24;
+    color: white;
+    text-align: center;
+}
+
+.footer-logo {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer p {
+    color: #d5e8db;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin: 25px 0;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: #5ee58c;
+}
+
+.copyright {
+    font-size: 14px;
+    margin-top: 25px;
+}
+
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero {
+        padding: 50px 6%;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 45px 20px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-icon {
+        width: 170px;
+        height: 170px;
+        font-size: 70px;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .features h2,
+    .how-it-works h2 {
+        font-size: 28px;
+    }
+
+    .cta {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .cta h2 {
+        font-size: 27px;
+    }
+
+}
+
+
+/* =========================
+   QUICK STATS
+========================= */
+
+.quick-stats {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.stat-card {
+    background: white;
+    padding: 25px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.stat-icon {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.stat-card h3 {
+    margin: 8px 0;
+}
+
+.stat-card p {
+    color: #666;
+    font-size: 14px;
+}
+
+
+/* =========================
+   GOALS
+========================= */
+
+.goals-section {
+    padding: 70px 5%;
+    text-align: center;
+}
+
+.goal-grid {
+    max-width: 1000px;
+    margin: 35px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.goal-card {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.goal-card:hover {
+    transform: translateY(-5px);
+}
+
+.goal-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.goal-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.goal-card a {
+    color: #20a653;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+/* =========================
+   WHY HEALTHNUTRI
+========================= */
+
+.why-section {
+    padding: 70px 5%;
+    background: #f3fff7;
+}
+
+.why-content {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.why-content h2 {
+    font-size: 32px;
+}
+
+.why-content p {
+    color: #666;
+    line-height: 1.7;
+}
+
+.why-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.why-item {
+    background: white;
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .quick-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .goal-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .why-content {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-icon {
+        margin-top: 25px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .quick-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+}
+
+/* =========================
+   EXTRA MOBILE FIX
+========================= */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 15px 12px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .nav-links {
+        gap: 10px;
+        width: 100%;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    .hero {
+        padding: 40px 15px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .hero-buttons {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .primary-button,
+    .secondary-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-icon {
+        width: 140px;
+        height: 140px;
+        font-size: 60px;
+    }
+
+    .feature-grid,
+    .goal-grid,
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .bmi-card,
+    .calorie-card,
+    .diet-card {
+        width: auto;
+        max-width: 100%;
+        margin-left: 15px;
+        margin-right: 15px;
+        padding: 20px;
+    }
+
+    .recipes-container {
+        padding: 15px;
+    }
+
+    .recipes-container h1 {
+        font-size: 30px;
+    }
+
+    .cta {
+        margin: 20px 15px 50px;
+        padding: 40px 20px;
+    }
+
+    .cta h2 {
+        font-size: 25px;
+    }
+
+    .why-content {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: column;
+        padding: 18px 15px;
+        text-align: center;
+    }
+
+    .logo {
+        margin-bottom: 15px;
+        font-size: 28px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+        padding: 6px 4px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 60px 20px;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+        line-height: 1.2;
+    }
+
+    .hero p {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero-buttons a {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .hero-icon {
+        margin-top: 40px;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .cta {
+        padding: 50px 20px;
+        text-align: center;
+    }
+
+    .footer {
+        text-align: center;
+    }
+
+}
+
+/* HealthNutri responsive polish and new tools */
+a.logo{text-decoration:none}.navbar{gap:18px;flex-wrap:wrap;border-radius:0;background:linear-gradient(115deg,#126b3b,#20a45a)}.nav-links{gap:16px;flex-wrap:wrap;align-items:center}.nav-links a{font-size:14px}
+.hero{max-width:1180px;margin:0 auto;padding:70px 28px 50px}.hero-content{max-width:720px}.hero h1 span{color:#16a34a}.quick-stats,.features,.goals-section{max-width:1180px;margin:20px auto 55px;padding:0 24px}.stat-card,.feature-card,.goal-card{border:1px solid #e6eee7;box-shadow:0 8px 28px rgba(24,78,43,.07)}
+.auth-container{min-height:78vh;padding:40px 18px;background:radial-gradient(circle at top right,#e2f6e7,transparent 48%)}.auth-card{width:min(440px,100%);border:1px solid #e5eee6;box-shadow:0 18px 55px rgba(25,75,42,.13)}.auth-card h1{color:#174c2b;font-size:30px}.auth-card input:focus{outline:2px solid #b8e6c4;border-color:#16a34a}
+.generator-page,.water-page{max-width:1120px;margin:0 auto;padding:34px 24px 65px}.generator-hero,.water-hero{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:34px;margin:10px 0 28px}.generator-hero h1,.water-hero h1{font-size:clamp(32px,4vw,48px);line-height:1.12;color:#183f29;margin:16px 0}.generator-hero h1 em,.water-hero h1 em{color:#1c9850;font-style:normal}.generator-hero p,.water-hero p{color:#65756a;line-height:1.8;font-size:16px}.generator-hero img,.water-hero img{width:100%;height:255px;object-fit:cover;border-radius:22px;box-shadow:0 16px 35px #1c57301c}.hero-badge{display:inline-block;background:#e5f7e9;color:#16713a;border-radius:30px;padding:9px 14px;font-size:12px;font-weight:700;letter-spacing:.5px}
+.generator-card,.water-card{background:white;border:1px solid #e2ece3;border-radius:20px;padding:28px;box-shadow:0 12px 36px rgba(25,75,42,.07)}.generator-fields{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.generator-fields label,.water-add-form label{display:grid;gap:9px;font-weight:700;font-size:14px;color:#294a33}.generator-fields input,.generator-fields select,.custom-water input{width:100%;padding:14px;border:1px solid #d9e5da;border-radius:10px;background:#fbfdfb;font-size:15px}.generator-fields small{color:#7a897e;font-weight:400;font-size:11px}.primary-button,.secondary-button{display:inline-block;text-decoration:none;border:0;border-radius:10px;padding:14px 20px;font-weight:700;cursor:pointer}.primary-button{color:white;background:linear-gradient(110deg,#178044,#24aa5b);box-shadow:0 7px 18px #18804424}.primary-button:hover{filter:brightness(.96);transform:translateY(-1px)}.secondary-button{background:#edf5ed;color:#27643b}.generator-button{margin-top:22px;width:100%;font-size:15px}
+.generated-plan{margin-top:26px}.plan-heading{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:25px;background:linear-gradient(120deg,#eaf7eb,#f7fbf4);border-radius:18px}.plan-heading h2{color:#194a2c;font-size:27px;margin:12px 0 5px}.plan-heading p{color:#6b7c6e;margin:0}.target-bubble{min-width:120px;height:120px;border-radius:50%;background:#fff;border:7px solid #d0ebd4;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#176b38}.target-bubble strong{font-size:23px}.target-bubble span{font-size:11px}
+.plan-macros{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0}.plan-macros>div{display:grid;gap:8px;padding:18px;background:#fff;border:1px solid #e6eee6;border-radius:13px}.plan-macros small{color:#849087;font-size:10px;font-weight:700;letter-spacing:.6px}.plan-macros b{color:#285c38;font-size:17px}.generated-meals{display:grid;gap:12px}.generated-meal{display:flex;gap:16px;align-items:center;padding:18px;background:#fff;border:1px solid #e6eee6;border-radius:14px}.meal-number{display:grid;place-items:center;min-width:45px;height:45px;border-radius:13px;background:#e9f5e9;color:#2c8144;font-weight:800}.meal-copy{flex:1}.meal-copy>span{font-size:11px;text-transform:uppercase;color:#279050;letter-spacing:1px;font-weight:800}.meal-copy h3{font-size:16px;margin:6px 0;color:#263d2c}.meal-copy p{font-size:12px;margin:0;color:#849087;line-height:1.5}.meal-kcal{display:grid;gap:4px;text-align:right;color:#245f37}.meal-kcal b{font-size:20px}.meal-kcal small{font-size:10px;color:#839087}.print-button{margin-top:18px}.nutrition-note{font-size:12px;line-height:1.7;color:#7b887e;margin-top:18px}
+.water-progress{display:grid;grid-template-columns:220px 1fr;align-items:center;gap:30px;padding:12px 0 28px}.water-ring{width:190px;height:190px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(#2198be var(--water-progress),#e3f1f3 0);position:relative;margin:auto}.water-ring:before{content:"";position:absolute;inset:12px;background:white;border-radius:50%}.water-ring>div{position:relative;display:grid;text-align:center;gap:4px;color:#266d80}.water-ring strong{font-size:34px}.water-ring span{font-size:12px}.water-total h2{font-size:38px;color:#246d7c;margin:10px 0}.water-total h2 small{font-size:15px}.water-total p{color:#718279;font-size:13px}.water-bar{height:10px;border-radius:20px;background:#e4f1f3;overflow:hidden}.water-bar span{display:block;height:100%;background:#299bb7;border-radius:20px}.water-add-form{border-top:1px solid #eaf0e9;padding-top:24px}.water-add-options{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:12px 0 18px}.water-add-options button{display:grid;gap:7px;padding:18px 10px;background:#f0f9fa;border:1px solid #d9edf0;border-radius:12px;color:#287c8c;font-weight:800;cursor:pointer}.water-add-options small{font-weight:400;color:#6d9398}.custom-water{display:flex;gap:12px}.custom-water input{flex:1}.reset-water{text-align:right;margin-top:18px}
+@media(max-width:760px){.navbar{padding:16px}.nav-links{justify-content:center;gap:12px}.nav-links a{font-size:12px}.generator-page,.water-page{padding:22px 14px 40px}.generator-hero,.water-hero{grid-template-columns:1fr;gap:18px}.generator-hero img,.water-hero img{height:190px}.generator-fields,.plan-macros{grid-template-columns:1fr}.generator-card,.water-card{padding:18px}.plan-heading{align-items:flex-start;padding:18px}.target-bubble{min-width:92px;width:92px;height:92px}.target-bubble strong{font-size:17px}.generated-meal{align-items:flex-start;gap:10px;padding:13px}.meal-number{min-width:35px;height:35px}.meal-kcal b{font-size:15px}.meal-copy h3{font-size:14px}.water-progress{grid-template-columns:1fr}.water-add-options{gap:7px}.water-add-options button{padding:14px 5px;font-size:12px}.custom-water{flex-direction:column}.custom-water button{width:100%}}
+@media print{.navbar,.generator-card,.nutrition-note,.print-button{display:none!important}.generator-page{padding:0}.generated-meal{break-inside:avoid}}

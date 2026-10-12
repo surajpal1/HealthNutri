@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personalised Diet Generator | HealthNutri</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head><body>
+<nav class="navbar"><a class="logo" href="/">HealthNutri 🥗</a><div class="nav-links">
+<a href="/">Home</a><a href="/bmi">BMI Calculator</a><a href="/calories">Calories</a><a href="/diet">Diet Generator</a><a href="/water">Water Intake</a><a href="/recipes">Recipes</a>
+{% if current_user %}<a href="/dashboard">Dashboard</a><a href="/logout">Logout</a>{% else %}<a href="/login">Login</a><a href="/signup">Sign Up</a>{% endif %}
+</div></nav>
+<main class="generator-page">
+<section class="generator-hero"><div><span class="hero-badge">🌿 YOUR FOOD. YOUR GOAL.</span><h1>A diet plan that fits <em>your calorie target.</em></h1><p>Choose your daily calories, goal and food preference. HealthNutri will create a flexible meal outline just for you.</p></div><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1000&q=85" alt="Fresh balanced healthy meal"></section>
+<section class="generator-card"><form id="dietForm">
+<div class="generator-fields">
+<label>Daily calorie target (kcal)<input id="targetCalories" type="number" min="1000" max="6000" step="50" value="2200" required><small>Enter any target from 1,000 to 6,000 kcal.</small></label>
+<label>Your goal<select id="goal"><option value="loss">Weight loss</option><option value="maintenance" selected>Maintain weight</option><option value="gain">Weight gain / muscle building</option></select></label>
+<label>Food preference<select id="foodPreference"><option value="veg">Vegetarian</option><option value="nonveg">Includes eggs / chicken / fish</option></select></label>
+</div><button class="primary-button generator-button" type="submit">Generate my diet plan ✨</button>
+</form></section>
+<section id="dietResult" class="generated-plan" aria-live="polite"></section>
+<p class="nutrition-note">Nutrition note: calorie values are estimates, not medical advice. Your ideal target depends on age, body size, activity and health. For personalised medical nutrition advice, consult a qualified professional.</p>
+</main>
+<script>
+const foodOptions = {
+ veg: [
+  {meal:"Breakfast",food:"Oats with milk, banana and a little peanut butter",share:.25,protein:20},
+  {meal:"Lunch",food:"Cooked rice, dal, paneer or soya and vegetables",share:.30,protein:25},
+  {meal:"Snack",food:"Fruit, curd and roasted chana",share:.15,protein:10},
+  {meal:"Dinner",food:"Roti, dal or paneer, vegetables and salad",share:.30,protein:25}
+ ],
+ nonveg: [
+  {meal:"Breakfast",food:"Oats with milk, banana and boiled eggs",share:.25,protein:23},
+  {meal:"Lunch",food:"Rice, dal, chicken or fish and vegetables",share:.30,protein:32},
+  {meal:"Snack",food:"Fruit, curd and roasted chana",share:.15,protein:10},
+  {meal:"Dinner",food:"Roti or rice, eggs/chicken, vegetables and salad",share:.30,protein:30}
+ ]
+};
+function makePlan(){
+ const target=Number(document.getElementById('targetCalories').value);
+ const goal=document.getElementById('goal').value;
+ const pref=document.getElementById('foodPreference').value;
+ const out=document.getElementById('dietResult');
+ if(!Number.isFinite(target)||target<1000||target>6000){out.innerHTML='<div class="error-message">Please enter a calorie target between 1,000 and 6,000.</div>';return;}
+ const names={loss:'Weight-loss focused plan',maintenance:'Balanced maintenance plan',gain:'Weight-gain focused plan'};
+ const meals=foodOptions[pref];
+ const kcal=meals.map(m=>Math.round(target*m.share));
+ kcal[kcal.length-1]+=target-kcal.reduce((a,b)=>a+b,0);
+ const protein=Math.round(target*.15/4);
+ out.innerHTML=`<div class="plan-heading"><div><span class="hero-badge">YOUR PLAN IS READY</span><h2>${names[goal]}</h2><p>Flexible ${pref==='veg'?'vegetarian':'mixed'} meal ideas based on your chosen target.</p></div><div class="target-bubble"><strong>${target.toLocaleString('en-IN')}</strong><span>kcal / day</span></div></div>
+ <div class="plan-macros"><div><small>DAILY CALORIES</small><b>${target.toLocaleString('en-IN')} kcal</b></div><div><small>ILLUSTRATIVE PROTEIN</small><b>~${protein} g</b></div><div><small>MEALS</small><b>4 per day</b></div></div>
+ <div class="generated-meals">${meals.map((m,i)=>`<article class="generated-meal"><div class="meal-number">0${i+1}</div><div class="meal-copy"><span>${m.meal}</span><h3>${m.food}</h3><p>Adjust portions and ingredients to suit your appetite and available foods.</p></div><div class="meal-kcal"><b>${kcal[i].toLocaleString('en-IN')}</b><small>kcal approx.</small></div></article>`).join('')}</div>
+ <button class="secondary-button print-button" onclick="window.print()">Print / Save plan</button>`;
+}
+document.getElementById('dietForm').addEventListener('submit',e=>{e.preventDefault();makePlan();});
+makePlan();
+</script></body></html>

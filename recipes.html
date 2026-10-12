@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Healthy Recipes - HealthNutri</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION BAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            HealthNutri 🥗
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/bmi">
+                BMI Calculator
+            </a>
+
+            <a href="/calories">
+                Calories
+            </a>
+
+            <a href="/diet">
+                Diet Plan
+            </a>
+
+            <a href="/recipes">
+                Recipes
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         RECIPES SECTION
+    ========================== -->
+
+    <div class="recipes-container">
+
+        <h1>
+            Healthy Recipes 🥗
+        </h1>
+
+        <p class="recipes-subtitle">
+            Simple and nutritious meals for your daily health goals.
+        </p>
+
+
+        <!-- =========================
+             SEARCH
+        ========================== -->
+
+        <div class="recipe-search">
+
+            <input
+                type="text"
+                id="recipeSearch"
+                placeholder="🔍 Search recipes..."
+                onkeyup="searchRecipes()"
+            >
+
+        </div>
+
+
+        <!-- =========================
+             RECIPE GRID
+        ========================== -->
+
+        <div class="recipe-grid"
+             id="recipeGrid">
+
+
+            <!-- PROTEIN OATS -->
+
+            <div class="recipe-card">
+
+                <div class="recipe-icon">
+                    🥣
+                </div>
+
+                <h2>
+                    Protein Oats
+                </h2>
+
+                <p>
+                    Oats with milk, banana and peanut butter.
+                    A simple high-energy breakfast.
+                </p>
+
+                <div class="nutrition-info">
+
+                    <span>
+                        🔥 450 kcal
+                    </span>
+
+                    <span>
+                        💪 18g protein
+                    </span>
+
+                </div>
+
+                <button onclick="toggleRecipe('oats', this)">
+                    View Recipe
+                </button>
+
+
+                <div id="oats"
+                     class="recipe-details">
+
+                    <h3>
+                        🥗 Ingredients
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            50g oats
+                        </li>
+
+                        <li>
+                            250ml milk
+                        </li>
+
+                        <li>
+                            1 banana
+                        </li>
+
+                        <li>
+                            1 tablespoon peanut butter
+                        </li>
+
+                    </ul>
+
+
+                    <h3>
+                        👨‍🍳 Preparation
+                    </h3>
+
+                    <p>
+                        Cook oats with milk for a few minutes.
+                        Add sliced banana and peanut butter.
+                        Mix well and serve.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- DAL RICE -->
+
+            <div class="recipe-card">
+
+                <div class="recipe-icon">
+                    🍛
+                </div>
+
+                <h2>
+                    Dal Rice
+                </h2>
+
+                <p>
+                    Cooked rice with dal and mixed vegetables.
+                    A balanced everyday Indian meal.
+                </p>
+
+                <div class="nutrition-info">
+
+                    <span>
+                        🔥 550 kcal
+                    </span>
+
+                    <span>
+                        💪 20g protein
+                    </span>
+
+                </div>
+
+                <button onclick="toggleRecipe('dalrice', this)">
+                    View Recipe
+                </button>
+
+
+                <div id="dalrice"
+                     class="recipe-details">
+
+                    <h3>
+                        🥗 Ingredients
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            200g cooked rice
+                        </li>
+
+                        <li>
+                            150g cooked dal
+                        </li>
+
+                        <li>
+                            Mixed vegetables
+                        </li>
+
+                        <li>
+                            Spices
+                        </li>
+
+                        <li>
+                            Salad
+                        </li>
+
+                    </ul>
+
+
+                    <h3>
+                        👨‍🍳 Preparation
+                    </h3>
+
+                    <p>
+                        Cook dal with spices and vegetables.
+                        Serve with cooked rice and fresh salad.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PANEER BOWL -->
+
+            <div class="recipe-card">
+
+                <div class="recipe-icon">
+                    🧀
+                </div>
+
+                <h2>
+                    Paneer Bowl
+                </h2>
+
+                <p>
+                    Paneer with vegetables and rice.
+                    A protein-rich meal for active lifestyles.
+                </p>
+
+                <div class="nutrition-info">
+
+                    <span>
+                        🔥 500 kcal
+                    </span>
+
+                    <span>
+                        💪 28g protein
+                    </span>
+
+                </div>
+
+                <button onclick="toggleRecipe('paneer', this)">
+                    View Recipe
+                </button>
+
+
+                <div id="paneer"
+                     class="recipe-details">
+
+                    <h3>
+                        🥗 Ingredients
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            100g paneer
+                        </li>
+
+                        <li>
+                            150g cooked rice
+                        </li>
+
+                        <li>
+                            Mixed vegetables
+                        </li>
+
+                        <li>
+                            Spices
+                        </li>
+
+                        <li>
+                            1 teaspoon oil
+                        </li>
+
+                    </ul>
+
+
+                    <h3>
+                        👨‍🍳 Preparation
+                    </h3>
+
+                    <p>
+                        Cut paneer into small pieces.
+                        Cook vegetables with spices and lightly
+                        sauté the paneer. Serve with rice.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- BANANA SHAKE -->
+
+            <div class="recipe-card">
+
+                <div class="recipe-icon">
+                    🥤
+                </div>
+
+                <h2>
+                    Banana Shake
+                </h2>
+
+                <p>
+                    Milk, banana and peanut butter shake.
+                    Great as a quick energy-rich snack.
+                </p>
+
+                <div class="nutrition-info">
+
+                    <span>
+                        🔥 400 kcal
+                    </span>
+
+                    <span>
+                        💪 14g protein
+                    </span>
+
+                </div>
+
+                <button onclick="toggleRecipe('shake', this)">
+                    View Recipe
+                </button>
+
+
+                <div id="shake"
+                     class="recipe-details">
+
+                    <h3>
+                        🥗 Ingredients
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            250ml milk
+                        </li>
+
+                        <li>
+                            1 large banana
+                        </li>
+
+                        <li>
+                            1 tablespoon peanut butter
+                        </li>
+
+                        <li>
+                            Ice cubes
+                        </li>
+
+                    </ul>
+
+
+                    <h3>
+                        👨‍🍳 Preparation
+                    </h3>
+
+                    <p>
+                        Add milk, banana and peanut butter
+                        into a blender. Blend until smooth.
+                        Add ice and serve chilled.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- HEALTHY SANDWICH -->
+
+            <div class="recipe-card">
+
+                <div class="recipe-icon">
+                    🥪
+                </div>
+
+                <h2>
+                    Healthy Veg Sandwich
+                </h2>
+
+                <p>
+                    Whole wheat bread with vegetables and
+                    paneer for a nutritious snack.
+                </p>
+
+                <div class="nutrition-info">
+
+                    <span>
+                        🔥 350 kcal
+                    </span>
+
+                    <span>
+                        💪 16g protein
+                    </span>
+
+                </div>
+
+                <button onclick="toggleRecipe('sandwich', this)">
+                    View Recipe
+                </button>
+
+
+                <div id="sandwich"
+                     class="recipe-details">
+
+                    <h3>
+                        🥗 Ingredients
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            4 slices whole wheat bread
+                        </li>
+
+                        <li>
+                            50g paneer
+                        </li>
+
+                        <li>
+                            Tomato
+                        </li>
+
+                        <li>
+                            Cucumber
+                        </li>
+
+                        <li>
+                            Onion
+                        </li>
+
+                        <li>
+                            Green chutney
+                        </li>
+
+                    </ul>
+
+
+                    <h3>
+                        👨‍🍳 Preparation
+                    </h3>
+
+                    <p>
+                        Spread green chutney on the bread.
+                        Add paneer and sliced vegetables.
+                        Toast lightly and serve fresh.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- SOYA BOWL -->
+
+            <div class="recipe-card">
+
+                <div class="recipe-icon">
+                    🫘
+                </div>
+
+                <h2>
+                    High Protein Soya Bowl
+                </h2>
+
+                <p>
+                    Soya chunks with vegetables and rice.
+                    A budget-friendly high-protein meal.
+                </p>
+
+                <div class="nutrition-info">
+
+                    <span>
+                        🔥 480 kcal
+                    </span>
+
+                    <span>
+                        💪 30g protein
+                    </span>
+
+                </div>
+
+                <button onclick="toggleRecipe('soya', this)">
+                    View Recipe
+                </button>
+
+
+                <div id="soya"
+                     class="recipe-details">
+
+                    <h3>
+                        🥗 Ingredients
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            50g dry soya chunks
+                        </li>
+
+                        <li>
+                            150g cooked rice
+                        </li>
+
+                        <li>
+                            Mixed vegetables
+                        </li>
+
+                        <li>
+                            Spices
+                        </li>
+
+                        <li>
+                            1 teaspoon oil
+                        </li>
+
+                    </ul>
+
+
+                    <h3>
+                        👨‍🍳 Preparation
+                    </h3>
+
+                    <p>
+                        Boil soya chunks and squeeze out excess
+                        water. Cook with vegetables and spices.
+                        Serve with cooked rice.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+
+        /* =========================
+           SHOW / HIDE RECIPE
+        ========================== */
+
+        function toggleRecipe(id, button) {
+
+            let recipe =
+                document.getElementById(id);
+
+
+            if (recipe.style.display === "block") {
+
+                recipe.style.display = "none";
+
+                button.innerText =
+                    "View Recipe";
+
+            }
+
+            else {
+
+                recipe.style.display = "block";
+
+                button.innerText =
+                    "Hide Recipe";
+
+            }
+
+        }
+
+
+        /* =========================
+           SEARCH RECIPES
+        ========================== */
+
+        function searchRecipes() {
+
+            let search =
+                document
+                    .getElementById("recipeSearch")
+                    .value
+                    .toLowerCase()
+                    .trim();
+
+
+            let cards =
+                document.querySelectorAll(".recipe-card");
+
+
+            cards.forEach(function(card) {
+
+
+                let recipeName =
+                    card
+                        .querySelector("h2")
+                        .innerText
+                        .toLowerCase();
+
+
+                let recipeDescription =
+                    card
+                        .querySelector("p")
+                        .innerText
+                        .toLowerCase();
+
+
+                if (
+                    recipeName.includes(search) ||
+                    recipeDescription.includes(search)
+                ) {
+
+                    card.style.display = "";
+
+                }
+
+                else {
+
+                    card.style.display = "none";
+
+                }
+
+            });
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

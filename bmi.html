@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>BMI Calculator - HealthNutri</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION BAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            HealthNutri 🥗
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/bmi">
+                BMI Calculator
+            </a>
+
+            <a href="/calories">
+                Calories
+            </a>
+
+            <a href="/diet">
+                Diet Plan
+            </a>
+
+            <a href="/recipes">
+                Recipes
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         BMI SECTION
+    ========================== -->
+
+    <div class="bmi-container">
+
+        <h1>
+            BMI Calculator
+        </h1>
+
+        <p>
+            Calculate your Body Mass Index
+        </p>
+
+
+        <div class="bmi-card">
+
+            <label for="weight">
+                Weight (kg)
+            </label>
+
+            <input
+                type="number"
+                id="weight"
+                placeholder="Enter your weight"
+                min="1"
+                step="0.1"
+            >
+
+
+            <label for="height">
+                Height (cm)
+            </label>
+
+            <input
+                type="number"
+                id="height"
+                placeholder="Enter your height"
+                min="1"
+                step="0.1"
+            >
+
+
+            <button onclick="calculateBMI()">
+                Calculate BMI
+            </button>
+
+
+            <button
+                onclick="resetBMI()"
+                class="reset-button"
+            >
+                Reset
+            </button>
+
+
+            <div id="result"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        function calculateBMI() {
+
+            let weight =
+                parseFloat(
+                    document.getElementById("weight").value
+                );
+
+            let height =
+                parseFloat(
+                    document.getElementById("height").value
+                );
+
+            let result =
+                document.getElementById("result");
+
+
+            /* =========================
+               VALIDATION
+            ========================= */
+
+            if (
+                isNaN(weight) ||
+                isNaN(height) ||
+                weight <= 0 ||
+                height <= 0
+            ) {
+
+                result.innerHTML =
+                    "<p>Please enter valid weight and height.</p>";
+
+                return;
+            }
+
+
+            /* =========================
+               BMI CALCULATION
+            ========================= */
+
+            let heightMeter =
+                height / 100;
+
+            let bmi =
+                weight /
+                (heightMeter * heightMeter);
+
+
+            /* =========================
+               CATEGORY
+            ========================= */
+
+            let category;
+            let recommendation;
+
+
+            if (bmi < 18.5) {
+
+                category = "Underweight";
+
+                recommendation =
+                    "Consider a balanced calorie-rich diet with adequate protein and regular meals.";
+
+            }
+
+            else if (bmi < 25) {
+
+                category = "Normal Weight";
+
+                recommendation =
+                    "Great! Maintain a balanced diet, regular physical activity and healthy lifestyle.";
+
+            }
+
+            else if (bmi < 30) {
+
+                category = "Overweight";
+
+                recommendation =
+                    "Focus on balanced meals, portion control and regular physical activity.";
+
+            }
+
+            else {
+
+                category = "Obese";
+
+                recommendation =
+                    "Focus on a balanced nutritious diet and regular physical activity. Consider professional guidance for personalized advice.";
+
+            }
+
+
+            /* =========================
+               DISPLAY RESULT
+            ========================= */
+
+            result.innerHTML =
+
+                "<h2>Your BMI: " +
+                bmi.toFixed(1) +
+                "</h2>" +
+
+                "<p>Category: " +
+                "<strong>" +
+                category +
+                "</strong>" +
+                "</p>" +
+
+                "<p>Healthy BMI Range: " +
+                "<strong>18.5 - 24.9</strong>" +
+                "</p>" +
+
+                "<p>" +
+                recommendation +
+                "</p>";
+
+        }
+
+
+        /* =========================
+           RESET
+        ========================= */
+
+        function resetBMI() {
+
+            document.getElementById("weight").value = "";
+
+            document.getElementById("height").value = "";
+
+            document.getElementById("result").innerHTML = "";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
